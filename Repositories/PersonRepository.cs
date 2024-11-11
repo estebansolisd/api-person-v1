@@ -26,5 +26,8 @@ namespace person_api_1.Repositories
 
         public async Task<Person> GetPersonByIdAsync(Guid id) =>
             await _context.Persons.FirstAsync( x => x.Id == id);
+
+        public async Task<List<Person>> GetAllPeopleAsync() => 
+            await _context.Persons.ToListAsync();
     }
 }

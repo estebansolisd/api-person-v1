@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using person_api_1.Commands;
 using person_api_1.Models.DTO;
+using person_api_1.Queries;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -37,4 +38,16 @@ public class PersonController : ControllerBase
         if (!result) return NotFound();
         return NoContent();
     }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetPersonById(Guid id)
+    {
+        // Assume GetPersonByIdQuery exists
+        var person = await _mediator.Send(new GetPersonByIdQuery(id));
+        return person != null ? Ok(person) : NotFound();
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAllPersons() =>
+        Ok(await _mediator.Send(new GetAllPersonsQuery()));
 }

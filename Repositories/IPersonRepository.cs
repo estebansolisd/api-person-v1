@@ -5,5 +5,7 @@ namespace person_api_1.Repositories
         Task<bool> UpdatePersonAsync(Person person);
         Task<Person> GetPersonByIdAsync(Guid id);
         Task AddPersonAsync(Person person);
+        Task<List<Person>> GetAllPeopleAsync();
+
     }
 }

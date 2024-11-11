@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using person_api_1.Commands;
 using person_api_1.Data;
 using person_api_1.Handlers;
+using person_api_1.Queries;
 using person_api_1.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 // Register the command handler
 builder.Services.AddScoped<IRequestHandler<AddPersonCommand, Person>, AddPersonHandler>();
 builder.Services.AddScoped<IRequestHandler<RecordBirthCommand, bool>, RecordBirthHandler>();
+builder.Services.AddScoped<IRequestHandler<GetPersonByIdQuery, Person>, GetPersonByIdHandler>();
+builder.Services.AddScoped<IRequestHandler<GetAllPersonsQuery, List<Person>>, GetAllPersonsHandler>();;
 
 
 builder.Services.AddControllers();
