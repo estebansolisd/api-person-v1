@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/person-api-1.props" />
+</Project>
