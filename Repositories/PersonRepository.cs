@@ -1,29 +1,20 @@
+using person_api_1.Data;
+
 namespace person_api_1.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        private readonly List<Person> _people = new();
+        private readonly DatabaseContext _context;
 
-        // public Task<Person> GetPersonByIdAsync(Guid personId)
-        // {
-        //     return Task.FromResult(_people.FirstOrDefault(p => p.Id == personId));
-        // }
-        //
-        // public Task UpdatePersonAsync(Person person)
-        // {
-        //     var existingPerson = _people.FirstOrDefault(p => p.Id == person.Id);
-        //     if (existingPerson != null)
-        //     {
-        //         _people.Remove(existingPerson);
-        //         _people.Add(person);
-        //     }
-        //     return Task.CompletedTask;
-        // }
-
-        public Task AddPersonAsync(Person person)
+        public PersonRepository(DatabaseContext context)
         {
-            _people.Add(person);
-            return Task.CompletedTask;
+            _context = context;
+        }
+        
+        public async Task AddPersonAsync(Person person)
+        {
+            _context.Persons.Add(person);
+            await _context.SaveChangesAsync();
         }
 
         // public Task<IEnumerable<Person>> GetAllPeopleAsync()

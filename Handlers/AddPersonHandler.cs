@@ -24,6 +24,8 @@ namespace person_api_1.Handlers
                 Gender = request.Person.Gender,
                 BirthDate = request.Person.BirthDate,
                 BirthLocation = request.Person.BirthLocation,
+                DeathDate = request.Person.BirthDate,
+                DeathLocation = request.Person.DeathLocation,
             };
 
             await _repository.AddPersonAsync(person);

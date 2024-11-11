@@ -1,9 +1,8 @@
 using System;
 using person_api_1.Models;
 
-public class Person
+public class AddPersonDto
 {
-    public Guid Id { get; set; }
     public string GivenName { get; set; } = String.Empty;
     public string Surname { get; set; } = String.Empty;
     public Gender Gender { get; set; } 
