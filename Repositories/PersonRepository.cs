@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using person_api_1.Data;
+using person_api_1.Models;
 
 namespace person_api_1.Repositories
 {
@@ -29,5 +30,15 @@ namespace person_api_1.Repositories
 
         public async Task<List<Person>> GetAllPeopleAsync() => 
             await _context.Persons.ToListAsync();
+        public async Task<List<PersonHistory>> GetPersonHistoryAsync(Guid personId) =>
+            await _context.PersonHistories
+                .Where(ph => ph.PersonId == personId)
+                .OrderBy(ph => ph.Timestamp)
+                .ToListAsync();
+        public async Task AddPersonHistoryAsync(PersonHistory personHistory)
+        {
+            _context.PersonHistories.Add(personHistory);
+            await _context.SaveChangesAsync();
+        }
     }
 }

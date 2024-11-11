@@ -43,6 +43,25 @@ namespace person_api_1.Handlers
                 DeathDate = request.Person.BirthDate,
                 DeathLocation = request.Person.DeathLocation,
             };
+            
+            var history = new PersonHistory
+            {
+                PersonId = person.Id,
+                Version = 1,
+                GivenName = person.GivenName,
+                Surname = person.Surname,
+                Gender = person.Gender,
+                BirthDate = person.BirthDate,
+                BirthLocation = person.BirthLocation,
+                DeathDate = person.DeathDate,
+                DeathLocation = person.DeathLocation,
+                Timestamp = DateTime.UtcNow
+            };
+            
+
+            await _repository.AddPersonHistoryAsync(history);
+            
+            _logger.LogInformation("History added for person: {PersonId}", person.Id);
 
             await _repository.AddPersonAsync(person);
             

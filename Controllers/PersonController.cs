@@ -50,4 +50,30 @@ public class PersonController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllPersons() =>
         Ok(await _mediator.Send(new GetAllPersonsQuery()));
+    
+    [HttpGet("{personId}/history")]
+    public async Task<IActionResult> GetPersonHistoryAsync(Guid personId)
+    {
+        var history = await _mediator.Send(new GetPersonHistoryQuery(personId));
+
+        if (history.Count == 0)
+        {
+            return NotFound($"No history found for person with ID {personId}");
+        }
+
+        return Ok(history);
+    }
+    
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdatePerson(Guid id, [FromBody] UpdatePersonDto person)
+    {
+        var success = await _mediator.Send(new UpdatePersonCommand(id, person));
+
+        if (success)
+        {
+            return Ok();
+        }
+        
+        return NotFound();
+    }
 }
