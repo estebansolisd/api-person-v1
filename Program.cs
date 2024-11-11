@@ -28,6 +28,7 @@ builder.Services.AddScoped<IRequestHandler<RecordBirthCommand, bool>, RecordBirt
 builder.Services.AddScoped<IRequestHandler<GetPersonByIdQuery, Person>, GetPersonByIdHandler>();
 builder.Services.AddScoped<IRequestHandler<GetAllPersonsQuery, List<Person>>, GetAllPersonsHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<AddPersonCommandValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<RecordBirthCommandValidator>();
 
 //Exceptions
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
