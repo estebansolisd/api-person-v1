@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using person_api_1.Commands;
 using person_api_1.Data;
 using person_api_1.Handlers;
+using person_api_1.Models;
 using person_api_1.Queries;
 using person_api_1.Repositories;
 using person_api_1.Validators;
@@ -34,10 +35,13 @@ builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 // Register the command handler
 builder.Services.AddScoped<IRequestHandler<AddPersonCommand, Person>, AddPersonHandler>();
+builder.Services.AddScoped<IRequestHandler<UpdatePersonCommand, bool>, UpdatePersonHandler>();
 builder.Services.AddScoped<IRequestHandler<RecordBirthCommand, bool>, RecordBirthHandler>();
 builder.Services.AddScoped<IRequestHandler<GetPersonByIdQuery, Person>, GetPersonByIdHandler>();
 builder.Services.AddScoped<IRequestHandler<GetAllPersonsQuery, List<Person>>, GetAllPersonsHandler>();
+builder.Services.AddScoped<IRequestHandler<GetPersonHistoryQuery, List<PersonHistory>>, GetPersonHistoryHandler>();
 builder.Services.AddValidatorsFromAssemblyContaining<AddPersonCommandValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<UpdatePersonCommandValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<RecordBirthCommandValidator>();
 
 //Exceptions

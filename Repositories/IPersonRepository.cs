@@ -1,3 +1,5 @@
+using person_api_1.Models;
+
 namespace person_api_1.Repositories
 {
     public interface IPersonRepository
@@ -6,6 +8,7 @@ namespace person_api_1.Repositories
         Task<Person> GetPersonByIdAsync(Guid id);
         Task AddPersonAsync(Person person);
         Task<List<Person>> GetAllPeopleAsync();
-
+        Task<List<PersonHistory>> GetPersonHistoryAsync(Guid personId);
+        Task AddPersonHistoryAsync(PersonHistory personHistory);
     }
 }
