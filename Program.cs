@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using person_api_1.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<DatabaseContext>(options =>
+    options.UseInMemoryDatabase("PersonDb"));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

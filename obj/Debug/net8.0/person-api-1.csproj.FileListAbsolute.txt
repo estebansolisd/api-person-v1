@@ -30,3 +30,15 @@
 /Users/juansolis/Documents/projects/person-api-1/obj/Debug/net8.0/person-api-1.pdb
 /Users/juansolis/Documents/projects/person-api-1/obj/Debug/net8.0/person-api-1.genruntimeconfig.cache
 /Users/juansolis/Documents/projects/person-api-1/obj/Debug/net8.0/ref/person-api-1.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
