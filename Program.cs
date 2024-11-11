@@ -4,6 +4,8 @@ using person_api_1.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
+
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseInMemoryDatabase("PersonDb"));
 
