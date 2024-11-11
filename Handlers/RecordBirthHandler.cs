@@ -9,11 +9,13 @@ namespace person_api_1.Handlers
     {
         private readonly IPersonRepository _repository;
         private readonly IValidator<RecordBirthCommand> _validator;
+        private readonly ILogger<RecordBirthHandler> _logger;
 
-        public RecordBirthHandler(IPersonRepository repository, IValidator<RecordBirthCommand> validator)
+        public RecordBirthHandler(IPersonRepository repository, IValidator<RecordBirthCommand> validator, ILogger<RecordBirthHandler> logger)
         {
             _repository = repository;
             _validator = validator;
+            _logger = logger;
         }
 
         public async Task<bool> Handle(RecordBirthCommand request, CancellationToken cancellationToken)
@@ -28,19 +30,23 @@ namespace person_api_1.Handlers
             
             try
             {
+
                 var person = await _repository.GetPersonByIdAsync(request.Id);
+                _logger.LogInformation("Handling RecordBirthCommand for {GivenName} {Surname}", person.GivenName, person.Surname);
                 // Update birth information
                 person.BirthDate = request.BirthDate;
                 person.BirthLocation = request.BirthLocation;
 
                 // Save changes in the repository
                 await _repository.UpdatePersonAsync(person);
+                _logger.LogInformation("Updating birth date and birth location for {GivenName} {Surname}", person.GivenName, person.Surname);
+
 
                 flag = true;
             }
             catch (Exception e)
             {
-             // Logging here  
+                _logger.LogInformation("Unable to update birth information for user id {Id}", request.Id);
             }
             return flag;
         }
