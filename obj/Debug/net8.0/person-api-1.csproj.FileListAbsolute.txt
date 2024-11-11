@@ -46,3 +46,13 @@
 /Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/MediatR.Contracts.dll
 /Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/FluentValidation.dll
 /Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Microsoft.Extensions.DependencyModel.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.AspNetCore.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Formatting.Compact.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Settings.Configuration.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
+/Users/juansolis/Documents/projects/person-api-1/bin/Debug/net8.0/Serilog.Sinks.File.dll

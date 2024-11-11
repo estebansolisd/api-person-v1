@@ -12,11 +12,14 @@ namespace person_api_1.Handlers
     {
         private readonly IPersonRepository _repository;
         private readonly IValidator<AddPersonCommand> _validator;
+        private readonly ILogger<AddPersonHandler> _logger;
 
-        public AddPersonHandler(IPersonRepository repository, IValidator<AddPersonCommand> validator)
+
+        public AddPersonHandler(IPersonRepository repository, IValidator<AddPersonCommand> validator, ILogger<AddPersonHandler> logger)
         {
             _repository = repository;
             _validator = validator;
+            _logger = logger;
         }
 
         public async Task<Person> Handle(AddPersonCommand request, CancellationToken cancellationToken)
@@ -27,6 +30,7 @@ namespace person_api_1.Handlers
             {
                 throw new ValidationException(validationResult.Errors);
             }
+            _logger.LogInformation("Handling AddPersonCommand for {GivenName} {Surname}", request.Person.GivenName, request.Person.Surname);
             
             var person = new Person
             {
@@ -41,6 +45,8 @@ namespace person_api_1.Handlers
             };
 
             await _repository.AddPersonAsync(person);
+            
+            _logger.LogInformation("Person added successfully with Id: {PersonId}", person.Id);
 
             return person;
         }

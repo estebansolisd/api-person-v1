@@ -7,8 +7,18 @@ using person_api_1.Handlers;
 using person_api_1.Queries;
 using person_api_1.Repositories;
 using person_api_1.Validators;
+using Serilog;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Logger
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddMediatR(cfg =>
