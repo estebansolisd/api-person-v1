@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using person_api_1.Commands;
+using person_api_1.Models.DTO;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -28,11 +29,12 @@ public class PersonController : ControllerBase
         }
     }
 
-    // [HttpGet("{id}")]
-    // public async Task<IActionResult> GetPersonById(Guid id)
-    // {
-    //     // Assume GetPersonByIdQuery exists
-    //     var person = await _mediator.Send(new GetPersonByIdQuery(id));
-    //     return person != null ? Ok(person) : NotFound();
-    // }
+    [HttpPost("{id}/record-birth")]
+    public async Task<IActionResult> RecordBirth(Guid id, [FromBody] RecordBirthDto dto)
+    {
+        var command = new RecordBirthCommand(id, dto.BirthDate, dto.BirthLocation);
+        var result = await _mediator.Send(command);
+        if (!result) return NotFound();
+        return NoContent();
+    }
 }

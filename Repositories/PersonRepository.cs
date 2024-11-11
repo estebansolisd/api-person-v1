@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using person_api_1.Data;
 
 namespace person_api_1.Repositories
@@ -17,9 +18,13 @@ namespace person_api_1.Repositories
             await _context.SaveChangesAsync();
         }
 
-        // public Task<IEnumerable<Person>> GetAllPeopleAsync()
-        // {
-        //     return Task.FromResult<IEnumerable<Person>>(_people);
-        // }
+        public async Task<bool> UpdatePersonAsync(Person person)
+        {
+            _context.Persons.Update(person);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<Person> GetPersonByIdAsync(Guid id) =>
+            await _context.Persons.FirstAsync( x => x.Id == id);
     }
 }

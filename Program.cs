@@ -17,6 +17,7 @@ builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 // Register the command handler
 builder.Services.AddScoped<IRequestHandler<AddPersonCommand, Person>, AddPersonHandler>();
+builder.Services.AddScoped<IRequestHandler<RecordBirthCommand, bool>, RecordBirthHandler>();
 
 
 builder.Services.AddControllers();
