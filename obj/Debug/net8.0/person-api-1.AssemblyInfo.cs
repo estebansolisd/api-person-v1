@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("person-api-1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57159d47d3894a84388fd47554b96d72ef793565")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c94c9422287d610e34bdd153dcc1c42d930aaa19")]
 [assembly: System.Reflection.AssemblyProductAttribute("person-api-1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("person-api-1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

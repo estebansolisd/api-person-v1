@@ -5,7 +5,7 @@ public class AddPersonDto
 {
     public string GivenName { get; set; } = String.Empty;
     public string Surname { get; set; } = String.Empty;
-    public Gender Gender { get; set; } 
+    public Gender? Gender { get; set; } 
     public DateTime? BirthDate { get; set; }
     public string? BirthLocation { get; set; } = String.Empty;
     public DateTime? DeathDate { get; set; }  
